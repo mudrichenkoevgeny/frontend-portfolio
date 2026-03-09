@@ -1,0 +1,44 @@
+# Portfolio Project Standards & Rules
+
+## Project Overview
+- Core Stack: React, Vite, TypeScript.
+- Architecture: Clean Architecture with clear separation between UI, Core (logic), and Data.
+- Key Technologies: CSS Modules, Kotlin-centric domain knowledge (Android/KMP/Ktor).
+
+## General Instructions
+- Never include comments in the code unless explicitly asked.
+- Do not include personal remarks or additional meta-information in responses.
+- Maintain a strict topic focus; do not jump between unrelated tasks.
+- Always use TypeScript; never use plain JavaScript.
+
+## Directory Structure & Architecture
+- `src/ui/`: All visual elements.
+  - Components follow: `FolderName/Component.tsx`, `Component.module.css`, `index.ts`, `types.ts`.
+- `src/core/`: Business logic (mappers, utils, services).
+- `src/models/`: Shared TypeScript interfaces/types.
+  - Must use a barrel export (`index.ts`) for all models.
+- `src/data/` & `src/locales/`: Static JSON and i18n files.
+
+## Naming Conventions
+- Folders & Non-component files: `kebab-case` (e.g., `experience-mapper.ts`).
+- React Components: `PascalCase` (e.g., `ProjectCard.tsx`).
+- CSS Classes: `camelCase` (e.g., `.projectCardWrapper`).
+
+## Coding Standards & Imports
+- Use Named Exports (`export const ...`) instead of Default Exports.
+- **Imports:** Use Absolute Imports with `@/` alias.
+  - **Models:** Always import from the root of models: `import { Project, Technology } from '@/models';`.
+- **Mapping:** Strictly follow `Project` and `Technology` models. 
+  - `stack` in `Project` is an array of `Technology` objects, not strings.
+  - Initialize all required properties in mappers to avoid `ts(2322)`.
+
+## i18n Logic
+- Localization is handled via JSON files in `src/locales/`.
+- **Strict Typing:** All translation objects must implement the `TranslationSchema` interface.
+- Common keys (e.g., `stack_label`, `highlights_title`) must exist in `common.json`.
+- Use `getLocalizedExperience` mapper to transform `experience.json` + `translations` into typed `Project[]`.
+
+## Styling
+- Use CSS Modules for component-specific styles.
+- Global styles & CSS variables: `src/assets/styles/styles.css`.
+- Avoid hardcoded values; use CSS variables for theme consistency.

@@ -1,8 +1,10 @@
+import { TranslationSchema } from '@/models';
+
 export const getProjectDuration = (
   start: string, 
   end: string | null, 
   lang: 'ru' | 'en', 
-  translations: any
+  translations: TranslationSchema
 ) => {
   const startDate = new Date(start);
   const endDate = end ? new Date(end) : new Date();
@@ -35,6 +37,7 @@ export const getProjectDuration = (
   if (months > 0) result.push(`${months} ${getLabel(months, 'month')}`);
 
   const formatter = new Intl.DateTimeFormat(lang, { month: 'long', year: 'numeric' });
+  
   return {
     period: `${formatter.format(startDate)} — ${end ? formatter.format(endDate) : translations.present}`,
     total: result.join(' ')

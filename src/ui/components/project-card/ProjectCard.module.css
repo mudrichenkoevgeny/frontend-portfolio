@@ -1,0 +1,115 @@
+.projectCard {
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.projectCard:hover {
+  border-color: var(--accent-color);
+  transform: translateY(-2px);
+}
+
+.projectHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 16px;
+}
+
+.projectTitle {
+  font-size: 1.25rem;
+  margin: 0;
+  color: var(--text-main);
+}
+
+.projectRole {
+  font-size: 0.95rem;
+  color: var(--text-dim);
+}
+
+.projectPeriodBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.periodDates {
+  font-size: 0.9rem;
+  color: var(--text-main);
+  text-transform: capitalize;
+}
+
+.periodTotal {
+  font-size: 0.85rem;
+  color: var(--accent-color);
+  font-weight: 500;
+}
+
+.projectDescription {
+  margin: 16px 0;
+  line-height: 1.6;
+  color: var(--text-main);
+}
+
+.experienceSection {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.experienceRow {
+  display: flex;
+  gap: 12px;
+  padding: 0;
+  margin-bottom: 8px;
+  align-items: flex-start;
+}
+
+.experienceDot {
+  color: var(--accent-color);
+  line-height: 1.4;
+}
+
+.experienceText {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.experienceCategory {
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.experienceNames {
+  color: var(--text-dim);
+}
+
+.highlightsContainer {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.highlightsTitle {
+  font-size: 0.95rem;
+  color: var(--text-main);
+  margin: 0 0 12px 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.projectHighlights {
+  padding-left: 18px;
+  margin: 0;
+  list-style-type: square;
+}
+
+.projectHighlights li {
+  color: var(--text-dim);
+  margin-bottom: 8px;
+  padding-left: 4px;
+}
