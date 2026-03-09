@@ -1,0 +1,12 @@
+{
+  "present": "Present",
+  "highlights_title": "Key Highlights",
+  "duration_units": {
+    "year_1": "yr",
+    "year_2": "yrs",
+    "year_5": "yrs",
+    "month_1": "mo",
+    "month_2": "mos",
+    "month_5": "mos"
+  }
+}

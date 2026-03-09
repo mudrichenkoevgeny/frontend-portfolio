@@ -1,0 +1,81 @@
+:root {
+    --spacing-small: 8px;
+    --spacing-medium: 16px;
+    --spacing-large: 32px;
+    --border-radius: 12px;
+    --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    --bg-color: #ffffff;
+    --text-color: #1a1a1a;
+    --accent-color: #007bff;
+    --card-bg: #f8f9fa;
+}
+
+[data-theme="dark"] {
+    --bg-color: #121212;
+    --text-color: #e0e0e0;
+    --accent-color: #375a7f;
+    --card-bg: #1e1e1e;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-main);
+    transition: background-color 0.3s, color 0.3s;
+    padding: var(--spacing-large);
+    margin: 0;
+}
+
+.controls {
+    display: flex;
+    gap: var(--spacing-medium);
+    margin-bottom: var(--spacing-large);
+}
+
+button, select {
+    padding: var(--spacing-small) var(--spacing-medium);
+    cursor: pointer;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--accent-color);
+    background: var(--card-bg);
+    color: var(--text-color);
+}
+
+.status-indicator {
+    --status-color: #777;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-small);
+}
+
+.status-indicator[data-status="active"] { --status-color: #28a745; }
+.status-indicator[data-status="open"]   { --status-color: #ffc107; }
+.status-indicator[data-status="busy"]   { --status-color: #dc3545; }
+
+.status-circle {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--status-color);
+    position: relative;
+}
+
+.status-indicator[data-status="active"] .status-circle::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: var(--status-color);
+    animation: status-pulse 2s infinite ease-in-out;
+    opacity: 0.6;
+}
+
+@keyframes status-pulse {
+    0% { transform: scale(1); opacity: 0.6; }
+    70% { transform: scale(2.5); opacity: 0; }
+    100% { transform: scale(1); opacity: 0; }
+}

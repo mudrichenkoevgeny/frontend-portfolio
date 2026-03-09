@@ -1,0 +1,70 @@
+.project-header {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 16px;
+}
+
+.project-period-block {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.period-dates {
+  font-size: 0.9rem;
+  color: var(--text-main);
+  text-transform: capitalize;
+}
+
+.period-total {
+  font-size: 0.85rem;
+  color: var(--accent-color);
+  font-weight: 500;
+}
+
+.experience-row {
+  display: flex;
+  gap: 12px;
+  padding: 0;
+  margin-bottom: 8px;
+  align-items: flex-start;
+}
+
+.experience-dot {
+  color: var(--accent-color);
+  line-height: 1.4;
+}
+
+.experience-text {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.highlights-container {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.highlights-title {
+  font-size: 0.95rem;
+  color: var(--text-main);
+  margin: 0 0 12px 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.project-highlights {
+  padding-left: 18px;
+  margin: 0;
+  list-style-type: square;
+}
+
+.project-highlights li {
+  color: var(--text-dim);
+  margin-bottom: 8px;
+  padding-left: 4px;
+}

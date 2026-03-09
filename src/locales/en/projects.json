@@ -1,0 +1,114 @@
+{
+    "kmp-platform-sdk": {
+      "name": "Kotlin Multiplatform SDK",
+      "description": "KMP library for pet projects, featuring authentication, token management, and core network components.",
+      "highlights": [
+        "End-to-end development of a KMP library for cross-platform pet projects."
+      ]
+    },
+    "backend-platform-sdk": {
+      "name": "Backend Platform SDK (Ktor)",
+      "description": "Backend service providing infrastructure and API for mobile pet projects.",
+      "highlights": [
+        "Built a Ktor-based backend from scratch for integration with pet projects."
+      ]
+    },
+    "rate-and-review": {
+      "name": "Movie Rating",
+      "description": "Mobile application for searching and rating movies.",
+      "highlights": [
+        "Developed a multi-module application from scratch using a modern tech stack."
+      ]
+    },
+    "mts_smart_home": {
+      "name": "MTS Smart Home",
+      "description": "Smart home management ecosystem for controlling cameras, lighting, sockets, and sensors.",
+      "highlights": [
+        "Developed and maintained streaming video playback (Exoplayer, CloudSdk).",
+        "Implemented smart camera interactions: live streaming and remote settings management.",
+        "Developed a video event clip system (UI display, playback, deletion).",
+        "Migrated the 'Event Clips' feature to a new backend and updated playback architecture."
+      ]
+    },
+    "self-study": {
+      "name": "Self-Study Project",
+      "description": "Dedicated project for practicing refactoring techniques and legacy code modernization.",
+      "highlights": [
+        "Applied Clean Architecture and SOLID principles in real-world scenarios.",
+        "Refactored existing modules and updated the library stack."
+      ]
+    },
+    "investor_bank": {
+      "name": "Investor App",
+      "description": "Banking service for event registration, news monitoring, and stock quote tracking.",
+      "highlights": [
+        "Maintained and supported a legacy codebase.",
+        "Executed UI updates and migrated the codebase from Java to Kotlin.",
+        "Developed chat functionality: file/media attachments, replies, pinning, pagination, and deletion."
+      ]
+    },
+    "trading_info": {
+      "name": "Exchange Informer",
+      "description": "Information terminal for monitoring real-time stock exchange data.",
+      "highlights": [
+        "Contributed to the application's architectural design.",
+        "Developed real-time data exchange features via WebSockets.",
+        "Created custom data visualizations using the MpCharts library."
+      ]
+    },
+    "courses_aggregator": {
+      "name": "Video Courses Aggregator",
+      "description": "Educational platform for viewing and creating video-based learning content.",
+      "highlights": [
+        "Developed features for video playback and content uploading.",
+        "Implemented a robust data caching system within the app."
+      ]
+    },
+    "metallurgy_staff": {
+      "name": "Staff App (Metallurgy)",
+      "description": "Enterprise mobile solution for employees of a major metallurgical corporation.",
+      "highlights": [
+        "Integrated OAuth authentication with third-party providers.",
+        "Designed and developed a push notification system.",
+        "Implemented WebSocket-based real-time communication."
+      ]
+    },
+    "ecommerce_shop": {
+      "name": "E-commerce Shop",
+      "description": "Retail mobile client featuring product catalogs and order management.",
+      "highlights": [
+        "Performed bug fixing and new feature development."
+      ]
+    },
+    "scooter_rental": {
+      "name": "Scooter Rental",
+      "description": "Fleet management and client service for a scooter-sharing platform.",
+      "highlights": [
+        "Integrated an acquiring system for in-app payments.",
+        "Enhanced and maintained Google Maps API functionality."
+      ]
+    },
+    "oil_gas_construction": {
+      "name": "Industrial Tech Project",
+      "description": "Enterprise app for construction teams in the oil and gas industry.",
+      "highlights": [
+        "Developed and maintained a Server-Driven UI (SDUI) application from scratch.",
+        "Co-designed a push notification system in collaboration with the backend team."
+      ]
+    },
+    "retail_staff": {
+      "name": "Retail Staff Project",
+      "description": "Internal tool for retail store employees of a large-scale chain.",
+      "highlights": [
+        "Optimized AWS integration modules and local database interactions.",
+        "Developed WebRTC-based calling functionality from the ground up."
+      ]
+    },
+    "distributor_info": {
+      "name": "Distributor App",
+      "description": "Information service for a product distribution company's staff.",
+      "highlights": [
+        "Fixed defects and implemented functional enhancements."
+      ]
+    }
+}

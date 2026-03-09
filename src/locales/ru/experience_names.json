@@ -1,0 +1,11 @@
+{
+    "multi_module": "Многомодульность",
+    "migration": "Миграция",
+    "legacy_support": "Поддержка Legacy",
+    "mentoring": "Менторство",
+    "hiring": "Найм и собеседования",
+    "documentation": "Документация",
+    "kmp_testing": "KMP тестирование",
+    "integration_testing": "Интеграционные тесты",
+    "custom_di": "Самописный DI"
+}

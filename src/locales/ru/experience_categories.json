@@ -1,0 +1,16 @@
+{
+    "languages": "Языки",
+    "platforms": "Платформы",
+    "architecture": "Архитектура и подходы",
+    "practices": "Инженерные практики",
+    "methodologies": "Методологии",
+    "quality": "Контроль качества",
+    "ui_frameworks": "UI и Навигация",
+    "di": "Dependency Injection",
+    "network": "Сеть",
+    "storage": "Хранение данных",
+    "async": "Асинхронность",
+    "vcs_ci_cd": "VCS и CI/CD",
+    "build_systems": "Системы сборки",
+    "integrations": "Интеграции и SDK"
+}

@@ -1,0 +1,16 @@
+{
+    "languages": "Languages",
+    "platforms": "Platforms",
+    "architecture": "Architecture",
+    "practices": "Engineering Practices",
+    "methodologies": "Methodologies",
+    "quality": "Quality Control",
+    "ui_frameworks": "UI & Navigation",
+    "di": "Dependency Injection",
+    "network": "Network",
+    "storage": "Storage",
+    "async": "Concurrency",
+    "vcs_ci_cd": "VCS & CI/CD",
+    "build_systems": "Build Systems",
+    "integrations": "Integrations & SDK"
+}
