@@ -2,8 +2,9 @@ import React, { useState, useEffect, useRef } from 'react';
 import { MainLayout } from '@/ui/layout/MainLayout';
 import { ProjectCard } from '@/ui/components/project-card';
 import { ProjectDetailsModal } from '@/ui/components/project-details-modal';
-import { getLocalizedExperience } from '@/core/mappers/experience-mapper';
+import { getLocalizedProject } from '@/core/mappers/project-mapper';
 import { getAggregatedStackFromExperience, groupStackByCategory } from '@/core/utils/stack-utils';
+import { getProjectDuration } from '@/core/utils/date-utils';
 import type { Project } from '@/models';
 import { Translations } from '@/models';
 import { getPreferredLanguage, setStoredLanguage } from '@/core/services/language-manager';
@@ -11,7 +12,8 @@ import { getStoredTheme, applyTheme, Theme } from '@/core/services/theme-manager
 
 import styles from './App.module.css';
 
-import experienceRaw from '@/data/experience.json';
+import projectRaw from '@/data/projects.json';
+import careerRaw from '@/data/career.json';
 import contactsData from '@/data/contacts.json';
 import avatarImage from '@/assets/images/avatar.jpg';
 import icTelegram from '@/assets/icons/ic_telegram.svg';
@@ -80,11 +82,25 @@ export const App: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const projectsScrollRef = useRef<HTMLDivElement | null>(null);
   const wheelCleanupRef = useRef<(() => void) | null>(null);
-  const projects = getLocalizedExperience(experienceRaw as never[], translations, lang);
-  const aggregatedStack = getAggregatedStackFromExperience(experienceRaw as Array<{ stack: string[] }>, lang, translations);
+  const projects = getLocalizedProject(projectRaw as never[], translations, lang);
+  const aggregatedStack = getAggregatedStackFromExperience(projectRaw as Array<{ stack: string[] }>, lang, translations);
   const groupedStack = groupStackByCategory(aggregatedStack);
   const aboutMe = aboutMeByLang[lang];
   const experienceList = aboutMe.experience ?? [];
+
+  type CareerEntry = { id: string; period: { start: string; end: string | null }; role_id: string; company: string | null; is_freelance: boolean };
+  const tForCareer = translations[lang];
+  const careerList = (careerRaw as CareerEntry[]).map((item) => {
+    const duration = getProjectDuration(item.period.start, item.period.end, lang, tForCareer);
+    const roleDisplayName = tForCareer.roles[item.role_id] ?? item.role_id;
+    const companyDisplay = item.is_freelance ? tForCareer.freelance : (item.company ?? '');
+    return {
+      key: `${item.id}-${item.period.start}-${item.role_id}`,
+      companyDisplay,
+      roleDisplayName,
+      periodText: `${duration.period} (${duration.total})`,
+    };
+  });
 
   const setProjectsScrollRef = (el: HTMLDivElement | null) => {
     if (wheelCleanupRef.current) {
@@ -148,6 +164,23 @@ export const App: React.FC = () => {
             </p>
           </div>
         ))}
+      </section>
+
+      <section className={styles.section}>
+        <div id="career" className={styles.sectionSep} aria-hidden="true" />
+        <h2 className={styles.sectionTitle}>{t.nav_career}</h2>
+        <ul className={styles.careerList}>
+          {careerList.map((item) => (
+            <li key={item.key} className={styles.careerItem}>
+              <p className={styles.careerMeta}>
+                {item.companyDisplay}
+                {item.companyDisplay && item.roleDisplayName ? ' · ' : ''}
+                {item.roleDisplayName}
+              </p>
+              <p className={styles.careerPeriod}>{item.periodText}</p>
+            </li>
+          ))}
+        </ul>
       </section>
 
       <section className={styles.section}>

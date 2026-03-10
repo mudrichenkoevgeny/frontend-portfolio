@@ -10,7 +10,7 @@ function findTechByKey(techKey: string): ExperienceEntry | null {
   return entries.find((e) => e.id === techKey) ?? null;
 }
 
-export function getLocalizedExperience(
+export function getLocalizedProject(
   rawJson: Array<{
     id: string;
     period: { start: string; end: string | null };

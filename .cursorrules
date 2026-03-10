@@ -20,7 +20,7 @@
 - `src/data/` & `src/locales/`: Static JSON and i18n files.
 
 ## Naming Conventions
-- Folders & Non-component files: `kebab-case` (e.g., `experience-mapper.ts`).
+- Folders & Non-component files: `kebab-case` (e.g., `project-mapper.ts`).
 - React Components: `PascalCase` (e.g., `ProjectCard.tsx`).
 - CSS Classes: `camelCase` (e.g., `.projectCardWrapper`).
 
@@ -36,7 +36,7 @@
 - Localization is handled via JSON files in `src/locales/`.
 - **Strict Typing:** All translation objects must implement the `TranslationSchema` interface.
 - Common keys (e.g., `stack_label`, `highlights_title`) must exist in `common.json`.
-- Use `getLocalizedExperience` mapper to transform `experience.json` + `translations` into typed `Project[]`.
+- Use `getLocalizedProject` mapper to transform `projects.json` + `translations` into typed `Project[]`.
 
 ## Styling
 - Use CSS Modules for component-specific styles.

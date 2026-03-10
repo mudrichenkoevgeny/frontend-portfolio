@@ -141,8 +141,7 @@
 
 .modalFooter {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   padding-top: var(--spacing-medium);
   margin-top: var(--spacing-medium);
-  border-top: 1px solid var(--accent-color);
 }

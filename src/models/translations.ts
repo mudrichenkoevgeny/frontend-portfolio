@@ -23,12 +23,14 @@ export interface TranslationSchema {
   nav_about: string;
   nav_experience: string;
   nav_stack: string;
+  nav_career: string;
   nav_projects: string;
   nav_contacts: string;
   theme_switch_to_dark: string;
   theme_switch_to_light: string;
   lang_name_ru: string;
   lang_name_en: string;
+  freelance: string;
   duration_units: DurationUnits;
   categories: Record<string, string>;
   tech_names: Record<string, string>;

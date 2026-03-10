@@ -91,6 +91,35 @@
   color: var(--text-color);
 }
 
+.careerList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.careerItem {
+  margin-bottom: var(--spacing-medium);
+  color: var(--text-color);
+}
+
+.careerItem:last-child {
+  margin-bottom: 0;
+}
+
+.careerMeta {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-color);
+  margin: 0 0 var(--spacing-small);
+}
+
+.careerPeriod {
+  font-size: 0.9rem;
+  color: var(--text-color);
+  opacity: 0.85;
+  margin: 0;
+}
+
 .projectsSectionTitle {
   font-size: 2.5rem;
   font-weight: 700;
@@ -164,7 +193,7 @@
   font-size: 2.5rem;
   font-weight: 700;
   color: var(--text-color);
-  margin: 0 0 var(--spacing-medium);
+  margin: 0 0 calc(var(--spacing-medium) * 2);
 }
 
 .contactsList {

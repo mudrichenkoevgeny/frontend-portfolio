@@ -70,7 +70,7 @@ export const MainLayout: React.FC<MainLayoutProps> = ({
   useEffect(() => {
     const hash = window.location.hash.slice(1);
     if (!hash) return;
-    const validIds = ['about', 'experience', 'stack', 'projects', 'contacts'];
+    const validIds = ['about', 'experience', 'stack', 'career', 'projects', 'contacts'];
     if (validIds.includes(hash)) {
       requestAnimationFrame(() => scrollToSection(hash, 'auto'));
     }
@@ -90,6 +90,9 @@ export const MainLayout: React.FC<MainLayoutProps> = ({
           </a>
           <a href="#stack" className={styles.navLink} onClick={(e) => handleNavClick(e, 'stack')}>
             {t.nav_stack}
+          </a>
+          <a href="#career" className={styles.navLink} onClick={(e) => handleNavClick(e, 'career')}>
+            {t.nav_career}
           </a>
           <a href="#projects" className={styles.navLink} onClick={(e) => handleNavClick(e, 'projects')}>
             {t.nav_projects}

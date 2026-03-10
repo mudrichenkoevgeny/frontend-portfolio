@@ -78,6 +78,7 @@
 }
 
 .moreDetailsBtn {
+  margin-left: auto;
   padding: var(--spacing-small) var(--spacing-medium);
   font-size: 0.875rem;
   border-radius: var(--border-radius);
