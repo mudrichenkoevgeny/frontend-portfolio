@@ -6,6 +6,13 @@
     --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     --header-height: 56px;
 
+    /* Typography: section headers (About, Experience, Stack, Career, Projects, Contacts) */
+    --section-title-font-size: 2.5rem;
+    --section-title-font-weight: 700;
+    /* Typography: body content in About and Experience sections */
+    --content-font-size: 1.15rem;
+    --content-line-height: 1.6;
+
     --bg-color: #ffffff;
     --text-color: #1a1a1a;
     --text-dim: #5a5a5a;

@@ -73,8 +73,9 @@
 }
 
 .projectTitle {
-  font-size: 1.25rem;
+  font-size: 1.35rem;
   font-weight: 700;
+  font-family: var(--font-main);
   color: var(--text-color);
   margin: 0;
   flex: 1;
@@ -82,20 +83,23 @@
 }
 
 .meta {
-  font-size: 0.875rem;
+  font-size: 0.95rem;
+  font-family: var(--font-main);
   color: var(--text-dim);
   margin: 0 0 var(--spacing-small);
 }
 
 .periodBlock {
-  font-size: 0.9rem;
+  font-size: 1rem;
+  font-family: var(--font-main);
   color: var(--text-color);
   margin: 0 0 var(--spacing-small);
 }
 
 .description {
-  font-size: 0.9rem;
+  font-size: 1rem;
   line-height: 1.5;
+  font-family: var(--font-main);
   color: var(--text-color);
   margin: 0;
 }
@@ -103,6 +107,7 @@
 .sectionTitle {
   font-size: 0.95rem;
   font-weight: 600;
+  font-family: var(--font-main);
   color: var(--text-color);
   margin: 0 0 var(--spacing-small);
 }
@@ -114,9 +119,11 @@
 }
 
 .highlightsList li {
-  margin-bottom: var(--spacing-small);
+  font-size: 1rem;
+  line-height: 1.5;
+  font-family: var(--font-main);
   color: var(--text-color);
-  line-height: 1.45;
+  margin-bottom: var(--spacing-small);
 }
 
 .stackGroup {
@@ -128,14 +135,17 @@
 }
 
 .stackGroupLine {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
+  font-family: var(--font-main);
   color: var(--text-color);
   line-height: 1.5;
   margin: 0;
 }
 
 .stackCategoryName {
+  font-size: 1rem;
   font-weight: 600;
+  font-family: var(--font-main);
   color: var(--text-color);
 }
 

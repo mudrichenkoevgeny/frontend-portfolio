@@ -16,6 +16,7 @@
   "lang_name_ru": "Русский",
   "lang_name_en": "English",
   "freelance": "Фриланс",
+  "email_copied_toast": "Email скопирован в буфер обмена",
   "duration_units": {
     "year_1": "год",
     "year_2": "года",

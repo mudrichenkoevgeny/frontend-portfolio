@@ -21,8 +21,9 @@
 }
 
 .sectionTitle {
-  font-size: 2.5rem;
-  font-weight: 700;
+  font-size: var(--section-title-font-size);
+  font-weight: var(--section-title-font-weight);
+  font-family: var(--font-main);
   color: var(--text-color);
   margin: 0 0 var(--spacing-medium);
 }
@@ -40,8 +41,9 @@
 }
 
 .aboutText {
-  font-size: 0.95rem;
-  line-height: 1.6;
+  font-size: var(--content-font-size);
+  line-height: var(--content-line-height);
+  font-family: var(--font-main);
   color: var(--text-color);
   margin: 0;
 }
@@ -66,8 +68,10 @@
 
 .skillsList li {
   margin-bottom: var(--spacing-small);
+  font-size: var(--content-font-size);
+  line-height: var(--content-line-height);
+  font-family: var(--font-main);
   color: var(--text-color);
-  line-height: 1.45;
 }
 
 .stackSectionGroup {
@@ -79,15 +83,17 @@
 }
 
 .stackSectionLine {
-  font-size: 0.9rem;
+  font-size: 1.05rem;
+  font-family: var(--font-main);
   color: var(--text-color);
   line-height: 1.5;
   margin: 0;
 }
 
 .stackCategoryName {
-  font-size: 1.05rem;
+  font-size: 1.15rem;
   font-weight: 600;
+  font-family: var(--font-main);
   color: var(--text-color);
 }
 
@@ -107,22 +113,25 @@
 }
 
 .careerMeta {
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   font-weight: 500;
+  font-family: var(--font-main);
   color: var(--text-color);
   margin: 0 0 var(--spacing-small);
 }
 
 .careerPeriod {
-  font-size: 0.9rem;
+  font-size: 1rem;
+  font-family: var(--font-main);
   color: var(--text-color);
   opacity: 0.85;
   margin: 0;
 }
 
 .projectsSectionTitle {
-  font-size: 2.5rem;
-  font-weight: 700;
+  font-size: var(--section-title-font-size);
+  font-weight: var(--section-title-font-weight);
+  font-family: var(--font-main);
   color: var(--text-color);
   margin: 0 0 var(--spacing-medium);
 }
@@ -190,8 +199,9 @@
 }
 
 .contactsTitle {
-  font-size: 2.5rem;
-  font-weight: 700;
+  font-size: var(--section-title-font-size);
+  font-weight: var(--section-title-font-weight);
+  font-family: var(--font-main);
   color: var(--text-color);
   margin: 0 0 calc(var(--spacing-medium) * 2);
 }
@@ -262,6 +272,34 @@
   .cardWrapper {
     flex: 1 1 auto;
     min-width: 0;
+  }
+}
+
+.toast {
+  position: fixed;
+  bottom: var(--spacing-large);
+  left: 50%;
+  transform: translateX(-50%);
+  padding: var(--spacing-medium) var(--spacing-large);
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  font-family: var(--font-main);
+  font-size: 0.95rem;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--accent-color);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  z-index: 300;
+  animation: toastFadeIn 0.2s ease-out;
+}
+
+@keyframes toastFadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
   }
 }
 

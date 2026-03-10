@@ -16,6 +16,7 @@
   "lang_name_ru": "Русский",
   "lang_name_en": "English",
   "freelance": "Freelance",
+  "email_copied_toast": "Email copied to clipboard",
   "duration_units": {
     "year_1": "yr",
     "year_2": "yrs",

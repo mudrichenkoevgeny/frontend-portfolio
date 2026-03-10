@@ -65,7 +65,7 @@
       ]
     },
     "metallurgy_staff": {
-      "name": "Staff App (Metallurgy)",
+      "name": "Manufacturing Staff App",
       "description": "Enterprise mobile solution for employees of a major metallurgical corporation.",
       "highlights": [
         "Integrated OAuth authentication with third-party providers.",

@@ -80,6 +80,8 @@ export const App: React.FC = () => {
   };
 
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [toastMessage, setToastMessage] = useState<string | null>(null);
+  const toastTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const projectsScrollRef = useRef<HTMLDivElement | null>(null);
   const wheelCleanupRef = useRef<(() => void) | null>(null);
   const projects = getLocalizedProject(projectRaw as never[], translations, lang);
@@ -119,6 +121,27 @@ export const App: React.FC = () => {
   };
 
   useEffect(() => () => wheelCleanupRef.current?.(), []);
+
+  const showToast = (message: string, durationMs = 2500) => {
+    if (toastTimeoutRef.current) clearTimeout(toastTimeoutRef.current);
+    setToastMessage(message);
+    toastTimeoutRef.current = setTimeout(() => {
+      setToastMessage(null);
+      toastTimeoutRef.current = null;
+    }, durationMs);
+  };
+
+  const handleContactClick = (e: React.MouseEvent<HTMLAnchorElement>, item: { value: string; link: string }) => {
+    if (!item.link.startsWith('mailto:')) return;
+    e.preventDefault();
+    const email = item.value || item.link.replace(/^mailto:/i, '').split('?')[0].trim();
+    navigator.clipboard.writeText(email).then(
+      () => showToast(translations[lang].email_copied_toast),
+      () => showToast(translations[lang].email_copied_toast)
+    );
+  };
+
+  useEffect(() => () => { if (toastTimeoutRef.current) clearTimeout(toastTimeoutRef.current); }, []);
 
   const t = translations[lang];
 
@@ -212,9 +235,10 @@ export const App: React.FC = () => {
             <li key={key} className={styles.contactItem}>
               <a
                 href={item.link}
-                target="_blank"
-                rel="noopener noreferrer"
+                target={item.link.startsWith('mailto:') ? undefined : '_blank'}
+                rel={item.link.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
                 className={styles.contactLink}
+                onClick={(e) => handleContactClick(e, item)}
               >
                 {item.icon && contactIcons[item.icon] && (
                   <img src={contactIcons[item.icon]} alt="" className={styles.contactIcon} />
@@ -225,6 +249,12 @@ export const App: React.FC = () => {
           ))}
         </ul>
       </footer>
+
+      {toastMessage && (
+        <div className={styles.toast} role="status" aria-live="polite">
+          {toastMessage}
+        </div>
+      )}
 
       <ProjectDetailsModal
         project={selectedProject}

@@ -31,6 +31,7 @@ export interface TranslationSchema {
   lang_name_ru: string;
   lang_name_en: string;
   freelance: string;
+  email_copied_toast: string;
   duration_units: DurationUnits;
   categories: Record<string, string>;
   tech_names: Record<string, string>;
