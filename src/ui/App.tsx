@@ -1,75 +1,205 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { MainLayout } from '@/ui/layout/MainLayout';
 import { ProjectCard } from '@/ui/components/project-card';
+import { ProjectDetailsModal } from '@/ui/components/project-details-modal';
 import { getLocalizedExperience } from '@/core/mappers/experience-mapper';
+import { getAggregatedStackFromExperience, groupStackByCategory } from '@/core/utils/stack-utils';
+import type { Project } from '@/models';
 import { Translations } from '@/models';
+import { getPreferredLanguage, setStoredLanguage } from '@/core/services/language-manager';
+import { getStoredTheme, applyTheme, Theme } from '@/core/services/theme-manager';
 
 import styles from './App.module.css';
 
 import experienceRaw from '@/data/experience.json';
+import contactsData from '@/data/contacts.json';
+import avatarImage from '@/assets/images/avatar.jpg';
+import icTelegram from '@/assets/icons/ic_telegram.svg';
+import icEmail from '@/assets/icons/ic_email.svg';
+import icGithub from '@/assets/icons/ic_github.svg';
 
 import ruCommon from '@/locales/ru/common.json';
 import ruCategories from '@/locales/ru/experience-categories.json';
 import ruNames from '@/locales/ru/experience-names.json';
 import ruProjects from '@/locales/ru/projects.json';
 import ruRoles from '@/locales/ru/roles.json';
+import ruAboutMe from '@/locales/ru/about-me.json';
 
 import enCommon from '@/locales/en/common.json';
 import enCategories from '@/locales/en/experience-categories.json';
 import enProjects from '@/locales/en/projects.json';
 import enRoles from '@/locales/en/roles.json';
+import enAboutMe from '@/locales/en/about-me.json';
+
+const translations: Translations = {
+  ru: {
+    ...ruCommon,
+    categories: ruCategories,
+    tech_names: ruNames,
+    projects: ruProjects,
+    roles: ruRoles,
+    lang_name_ru: ruCommon.lang_name_ru ?? 'Русский',
+    lang_name_en: ruCommon.lang_name_en ?? 'English',
+  },
+  en: {
+    ...enCommon,
+    categories: enCategories,
+    tech_names: {},
+    projects: enProjects,
+    roles: enRoles,
+    lang_name_ru: enCommon.lang_name_ru ?? 'Russian',
+    lang_name_en: enCommon.lang_name_en ?? 'English',
+  },
+};
+
+const aboutMeByLang = { ru: ruAboutMe as { about_me: string; experience?: string[] }, en: enAboutMe as { about_me: string; experience?: string[] } };
+const contacts = contactsData as Record<string, { value: string; link: string; icon?: string }>;
+const contactIcons: Record<string, string> = {
+  'ic_telegram.svg': icTelegram,
+  'ic_email.svg': icEmail,
+  'ic_github.svg': icGithub,
+};
 
 export const App: React.FC = () => {
-  const [lang, setLang] = useState<'ru' | 'en'>('ru');
+  const [lang, setLang] = useState<'ru' | 'en'>(getPreferredLanguage);
+  const [theme, setTheme] = useState<Theme>(getStoredTheme);
 
-  const translations: Translations = {
-    ru: {
-      ...ruCommon,
-      categories: ruCategories,
-      tech_names: ruNames,
-      projects: ruProjects,
-      roles: ruRoles
-    },
-    en: {
-      ...enCommon,
-      categories: enCategories,
-      tech_names: {},
-      projects: enProjects,
-      roles: enRoles
-    }
+  useEffect(() => {
+    applyTheme(theme);
+  }, [theme]);
+
+  useEffect(() => {
+    document.documentElement.lang = lang;
+  }, [lang]);
+
+  const handleLangChange = (newLang: 'ru' | 'en') => {
+    setStoredLanguage(newLang);
+    setLang(newLang);
   };
 
-  const projects = getLocalizedExperience(experienceRaw as any[], translations, lang);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const projectsScrollRef = useRef<HTMLDivElement | null>(null);
+  const wheelCleanupRef = useRef<(() => void) | null>(null);
+  const projects = getLocalizedExperience(experienceRaw as never[], translations, lang);
+  const aggregatedStack = getAggregatedStackFromExperience(experienceRaw as Array<{ stack: string[] }>, lang, translations);
+  const groupedStack = groupStackByCategory(aggregatedStack);
+  const aboutMe = aboutMeByLang[lang];
+  const experienceList = aboutMe.experience ?? [];
+
+  const setProjectsScrollRef = (el: HTMLDivElement | null) => {
+    if (wheelCleanupRef.current) {
+      wheelCleanupRef.current();
+      wheelCleanupRef.current = null;
+    }
+    projectsScrollRef.current = el;
+    if (!el) return;
+    const onWheel = (e: WheelEvent) => {
+      if (e.deltaY === 0) return;
+      e.preventDefault();
+      el.scrollBy({ left: e.deltaY, behavior: 'smooth' });
+    };
+    el.addEventListener('wheel', onWheel, { passive: false });
+    wheelCleanupRef.current = () => el.removeEventListener('wheel', onWheel);
+  };
+
+  useEffect(() => () => wheelCleanupRef.current?.(), []);
+
+  const t = translations[lang];
 
   return (
-    <div className={styles.appContainer}>
-      <header>
-        <div className={styles.langSwitcher}>
-          <button 
-            onClick={() => setLang('ru')} 
-            disabled={lang === 'ru'}
-          >
-            RU
-          </button>
-          <button 
-            onClick={() => setLang('en')} 
-            disabled={lang === 'en'}
-          >
-            EN
-          </button>
+    <MainLayout
+      lang={lang}
+      onLangChange={handleLangChange}
+      theme={theme}
+      onThemeChange={setTheme}
+      translations={translations}
+    >
+      <section className={styles.section}>
+        <div id="about" className={`${styles.sectionSep} ${styles.sectionSepNoLine}`} aria-hidden="true" />
+        <h2 className={styles.sectionTitle}>{t.person_name}</h2>
+        <div className={styles.aboutSection}>
+          <div className={styles.aboutContent}>
+            <p className={styles.aboutText}>{aboutMe.about_me}</p>
+          </div>
+          <div className={styles.aboutImageWrap}>
+            <img src={avatarImage} alt="" className={styles.avatarCircle} />
+          </div>
         </div>
-      </header>
+      </section>
 
-      <main className={styles.projectsGrid}>
-        {projects.map((project) => (
-          <div key={project.id} className={styles.projectCardWrapper}>
-            <ProjectCard 
-              project={project} 
-              translations={translations} 
-              lang={lang} 
-            />
+      <section className={styles.section}>
+        <div id="experience" className={styles.sectionSep} aria-hidden="true" />
+        <h2 className={styles.sectionTitle}>{t.nav_experience}</h2>
+        <ul className={styles.skillsList}>
+          {experienceList.map((item, index) => (
+            <li key={index}>{item}</li>
+          ))}
+        </ul>
+      </section>
+
+      <section className={styles.section}>
+        <div id="stack" className={styles.sectionSep} aria-hidden="true" />
+        <h2 className={styles.sectionTitle}>{t.stack_label}</h2>
+        {groupedStack.map(({ category, techs }) => (
+          <div key={category} className={styles.stackSectionGroup}>
+            <p className={styles.stackSectionLine}>
+              <span className={styles.stackCategoryName}>{t.categories[category] ?? category}:</span>{' '}
+              {techs.map((tech) => tech.name).join(', ')}
+            </p>
           </div>
         ))}
-      </main>
-    </div>
+      </section>
+
+      <section className={styles.section}>
+        <div id="projects" className={styles.sectionSep} aria-hidden="true" />
+        <h2 className={styles.projectsSectionTitle}>{t.nav_projects}</h2>
+        <div className={styles.projectsContainer}>
+          <div ref={setProjectsScrollRef} className={styles.projectsGrid}>
+            {projects.map((project) => (
+              <div key={project.id} className={styles.cardWrapper}>
+                <ProjectCard
+                  project={project}
+                  translations={translations}
+                  lang={lang}
+                  onMoreDetails={setSelectedProject}
+                />
+              </div>
+            ))}
+          </div>
+          <div className={styles.edgeMaskLeft} aria-hidden="true" />
+          <div className={styles.edgeMaskRight} aria-hidden="true" />
+        </div>
+      </section>
+
+      <footer className={styles.contactsFooter}>
+        <div id="contacts" className={styles.sectionSep} aria-hidden="true" />
+        <h2 className={styles.contactsTitle}>{t.nav_contacts}</h2>
+        <ul className={styles.contactsList}>
+          {Object.entries(contacts).map(([key, item]) => (
+            <li key={key} className={styles.contactItem}>
+              <a
+                href={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.contactLink}
+              >
+                {item.icon && contactIcons[item.icon] && (
+                  <img src={contactIcons[item.icon]} alt="" className={styles.contactIcon} />
+                )}
+                {item.value}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </footer>
+
+      <ProjectDetailsModal
+        project={selectedProject}
+        open={selectedProject !== null}
+        onClose={() => setSelectedProject(null)}
+        translations={translations}
+        lang={lang}
+      />
+    </MainLayout>
   );
 };

@@ -15,9 +15,11 @@
       "custom_di",
       "okhttp", "websocket",
       "coroutines", "flow",
-      "gradle_kts"
+      "gradle_kts",
+      "cursor", "gemini"
     ],
-    "is_pet": true
+    "is_pet": true,
+    "url": "https://github.com/mudrichenkoevgeny/kmp-platform-sdk"
   },
   {
     "id": "backend-platform-sdk",
@@ -36,9 +38,11 @@
       "postgres", "flyway",
       "coroutines", "flow",
       "docker",
-      "gradle_kts"
+      "gradle_kts",
+      "cursor", "gemini"
     ],
-    "is_pet": true
+    "is_pet": true,
+    "url": "https://github.com/mudrichenkoevgeny/backend-platform-sdk"
   },
   {
     "id": "rate-and-review",
@@ -57,14 +61,15 @@
       "coroutines", "flow",
       "gradle_kts"
     ],
-    "is_pet": true
+    "is_pet": true,
+    "url": null
   },
   {
-    "id": "mts-smart-home",
+    "id": "smart-home",
     "period": { "start": "2023-03-01", "end": "2024-08-01" },
     "role_id": "android_dev",
     "company": "Aston",
-    "project_key": "mts_smart_home",
+    "project_key": "smart_home",
     "stack": [
       "kotlin",
       "android_sdk",
@@ -78,9 +83,11 @@
       "coroutines", "flow",
       "git_flow", "trunk_based",
       "gradle_kts",
+      "camera",
       "exoplayer"
     ],
-    "is_pet": false
+    "is_pet": false,
+    "url": null
   },
   {
     "id": "self-study",
@@ -94,12 +101,13 @@
       "mvvm", "clean_arch", "solid",
       "refactoring", "legacy_support",
       "view_system", "jetpack_nav",
-      "hilt",
+      "hilt", "koin",
       "room",
       "coroutines", "flow",
       "gradle_kts"
     ],
-    "is_pet": true
+    "is_pet": true,
+    "url": null
   },
   {
     "id": "investor-app",
@@ -123,7 +131,8 @@
       "gradle_groovy", "gradle_kts",
       "firebase"
     ],
-    "is_pet": false
+    "is_pet": false,
+    "url": null
   },
   {
     "id": "trading-info-app",
@@ -147,7 +156,8 @@
       "gradle_kts",
       "firebase", "billing", "mp_charts"
     ],
-    "is_pet": false
+    "is_pet": false,
+    "url": null
   },
   {
     "id": "video-courses-aggregator",
@@ -170,7 +180,8 @@
       "gradle_kts",
       "firebase", "billing", "exoplayer", "mp_charts"
     ],
-    "is_pet": false
+    "is_pet": false,
+    "url": null
   },
   {
     "id": "metallurgy-staff-app",
@@ -193,7 +204,8 @@
       "gradle_groovy", "gradle_kts",
       "firebase"
     ],
-    "is_pet": false
+    "is_pet": false,
+    "url": null
   },
   {
     "id": "ecommerce-app",
@@ -214,7 +226,8 @@
       "rxjava",
       "gradle_groovy"
     ],
-    "is_pet": false
+    "is_pet": false,
+    "url": null
   },
   {
     "id": "scooter-rental-app",
@@ -234,9 +247,11 @@
       "room",
       "coroutines",
       "gradle_groovy",
+      "camera",
       "google_maps", "billing"
     ],
-    "is_pet": false
+    "is_pet": false,
+    "url": null
   },
   {
     "id": "oil-gas-staff-app",
@@ -256,7 +271,8 @@
       "coroutines",
       "gradle_groovy"
     ],
-    "is_pet": false
+    "is_pet": false,
+    "url": null
   },
   {
     "id": "retail-staff-app",
@@ -277,9 +293,11 @@
       "coroutines", "flow", "rxjava",
       "git_flow",
       "gradle_groovy", "gradle_kts",
+      "camera",
       "firebase", "webrtc"
     ],
-    "is_pet": false
+    "is_pet": false,
+    "url": null
   },
   {
     "id": "distributor-info-app",
@@ -300,6 +318,7 @@
       "rxjava",
       "gradle_groovy"
     ],
-    "is_pet": false
+    "is_pet": false,
+    "url": null
   }
 ]

@@ -12,5 +12,7 @@
     "async": "Concurrency",
     "vcs_ci_cd": "VCS & CI/CD",
     "build_systems": "Build Systems",
-    "integrations": "Integrations & SDK"
+    "hardware": "Hardware",
+    "integrations": "Integrations & SDK",
+    "ai_tools": "AI Tools"
 }

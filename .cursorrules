@@ -42,3 +42,9 @@
 - Use CSS Modules for component-specific styles.
 - Global styles & CSS variables: `src/assets/styles/styles.css`.
 - Avoid hardcoded values; use CSS variables for theme consistency.
+
+## AI Interaction Strategy (Prompting)
+- **Reference First:** Before generating any UI or logic, always analyze `@/models/index.ts` and the existing `translations` structure.
+- **Type-Driven Development:** Always define interfaces in `types.ts` before implementing the logic in `Component.tsx` or `mapper.ts`.
+- **Zero Hardcode:** Never use raw strings for UI text. If a key is missing in `TranslationSchema`, notify the user instead of hardcoding.
+- **Consistency:** When asked to "create a component", automatically generate the 4-file structure: `Component.tsx`, `Component.module.css`, `types.ts`, and `index.ts`.

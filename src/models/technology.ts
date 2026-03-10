@@ -12,7 +12,9 @@ export type TechCategory =
   | 'async' 
   | 'vcs_ci_cd' 
   | 'build_systems' 
-  | 'integrations';
+  | 'hardware' 
+  | 'integrations'
+  | 'ai_tools';
 
 export interface Technology {
   id: string;

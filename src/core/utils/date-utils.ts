@@ -37,9 +37,16 @@ export const getProjectDuration = (
   if (months > 0) result.push(`${months} ${getLabel(months, 'month')}`);
 
   const formatter = new Intl.DateTimeFormat(lang, { month: 'long', year: 'numeric' });
-  
+  const startStr = formatter.format(startDate);
+  const endStr = end ? formatter.format(endDate) : translations.present;
+  const cap = (s: string) => s.replace(/^\S/, (c) => c.toUpperCase());
+  const period =
+    lang === 'ru'
+      ? `${cap(startStr)} — ${end ? cap(endStr) : translations.present}`
+      : `${startStr} — ${end ? endStr : translations.present}`;
+
   return {
-    period: `${formatter.format(startDate)} — ${end ? formatter.format(endDate) : translations.present}`,
+    period,
     total: result.join(' ')
   };
 };

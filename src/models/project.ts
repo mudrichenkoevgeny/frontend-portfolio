@@ -20,4 +20,5 @@ export interface Project {
   highlights: string[];
   stack: Technology[];
   responsibilities: string[];
+  url: string | null;
 }

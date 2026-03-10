@@ -20,8 +20,8 @@
         "Developed a multi-module application from scratch using a modern tech stack."
       ]
     },
-    "mts_smart_home": {
-      "name": "MTS Smart Home",
+    "smart_home": {
+      "name": "Smart Home",
       "description": "Smart home management ecosystem for controlling cameras, lighting, sockets, and sensors.",
       "highlights": [
         "Developed and maintained streaming video playback (Exoplayer, CloudSdk).",

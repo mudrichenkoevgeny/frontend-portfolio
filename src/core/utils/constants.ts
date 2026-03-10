@@ -18,7 +18,9 @@ export const EXPERIENCE_CATEGORIES = {
     ASYNC: 'async',
     VCS_CI_CD: 'vcs_ci_cd',
     BUILD_SYSTEMS: 'build_systems',
-    INTEGRATIONS: 'integrations'
+    HARDWARE: 'hardware',
+    INTEGRATIONS: 'integrations',
+    AI_TOOLS: 'ai_tools'
 };
 
 export const EXPERIENCE = {
@@ -100,10 +102,18 @@ export const EXPERIENCE = {
     GRADLE_GROOVY: { id: 'gradle_groovy', name: 'Gradle (Groovy)', cat: EXPERIENCE_CATEGORIES.BUILD_SYSTEMS },
     GRADLE_KTS: { id: 'gradle_kts', name: 'Gradle (Kotlin DSL)', cat: EXPERIENCE_CATEGORIES.BUILD_SYSTEMS },
 
+    // Hardware
+    CAMERA: { id: 'camera', name: 'Camera', cat: EXPERIENCE_CATEGORIES.HARDWARE },
+    BLUETOOTH: { id: 'bluetooth', name: 'Bluetooth', cat: EXPERIENCE_CATEGORIES.HARDWARE },
+
     // Integrations
     FIREBASE: { id: 'firebase', name: 'Firebase', cat: EXPERIENCE_CATEGORIES.INTEGRATIONS },
     GOOGLE_MAPS: { id: 'google_maps', name: 'Google Maps API', cat: EXPERIENCE_CATEGORIES.INTEGRATIONS },
     BILLING: { id: 'billing', name: 'In-App Billing', cat: EXPERIENCE_CATEGORIES.INTEGRATIONS },
     WEBRTC: { id: 'webrtc', name: 'WebRTC', cat: EXPERIENCE_CATEGORIES.INTEGRATIONS },
-    EXOPLAYER: { id: 'exoplayer', name: 'ExoPlayer', cat: EXPERIENCE_CATEGORIES.INTEGRATIONS }
+    EXOPLAYER: { id: 'exoplayer', name: 'ExoPlayer', cat: EXPERIENCE_CATEGORIES.INTEGRATIONS },
+
+    // AI Tools
+    CURSOR: { id: 'cursor', name: 'Cursor', cat: EXPERIENCE_CATEGORIES.AI_TOOLS },
+    GEMINI: { id: 'gemini', name: 'Gemini', cat: EXPERIENCE_CATEGORIES.AI_TOOLS }
 };

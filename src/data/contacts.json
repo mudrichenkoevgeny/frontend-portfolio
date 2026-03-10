@@ -1,14 +1,17 @@
 {
   "telegram": {
     "value": "mudrichenko_evgeny",
-    "link": "https://t.me/mudrichenko_evgeny"
+    "link": "https://t.me/mudrichenko_evgeny",
+    "icon": "ic_telegram.svg"
   },
   "email": {
     "value": "evgeny.mudrichenko@gmail.com",
-    "link": "mailto:evgeny.mudrichenko@gmail.com"
+    "link": "mailto:evgeny.mudrichenko@gmail.com",
+    "icon": "ic_email.svg"
   },
   "github": {
     "value": "mudrichenkoevgeny",
-    "link": "https://github.com/mudrichenkoevgeny/mudrichenko-evgeny"
+    "link": "https://github.com/mudrichenkoevgeny/mudrichenko-evgeny",
+    "icon": "ic_github.svg"
   }
 }

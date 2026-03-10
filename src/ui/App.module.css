@@ -1,23 +1,238 @@
-.projects-grid {
+.section {
+  margin-bottom: calc(var(--spacing-large) * 2);
+}
+
+.section:last-of-type {
+  margin-bottom: 0;
+}
+
+.sectionSep {
+  height: 1px;
+  background-color: var(--accent-color);
+  opacity: 0.4;
+  margin: 0 0 var(--spacing-medium);
+  scroll-margin-top: 100px;
+}
+
+.sectionSepNoLine {
+  height: 0;
+  background: none;
+  opacity: 1;
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-color);
+  margin: 0 0 var(--spacing-medium);
+}
+
+.aboutSection {
   display: flex;
   flex-direction: row;
-  gap: 20px;
+  align-items: center;
+  gap: var(--spacing-large);
+}
+
+.aboutContent {
+  flex: 1;
+  min-width: 0;
+}
+
+.aboutText {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-color);
+  margin: 0;
+}
+
+.aboutImageWrap {
+  flex-shrink: 0;
+}
+
+.avatarCircle {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+.skillsList {
+  margin: 0;
+  padding-left: var(--spacing-large);
+  list-style-type: disc;
+}
+
+.skillsList li {
+  margin-bottom: var(--spacing-small);
+  color: var(--text-color);
+  line-height: 1.45;
+}
+
+.stackSectionGroup {
+  margin-bottom: var(--spacing-small);
+}
+
+.stackSectionGroup:last-child {
+  margin-bottom: 0;
+}
+
+.stackSectionLine {
+  font-size: 0.9rem;
+  color: var(--text-color);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.stackCategoryName {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.projectsSectionTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-color);
+  margin: 0 0 var(--spacing-medium);
+}
+
+.projectsContainer {
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: visible;
+  min-height: min-content;
+}
+
+.projectsGrid {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: var(--spacing-medium);
   overflow-x: auto;
-  padding: 20px;
-  scroll-snap-type: x mandatory;
+  overflow-y: hidden;
+  padding: var(--spacing-medium);
+  padding-bottom: 24px;
+  scroll-snap-type: x proximity;
   -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
 }
 
-.projects-grid::-webkit-scrollbar {
-  height: 8px;
+.projectsGrid::-webkit-scrollbar {
+  display: none;
 }
 
-.projects-grid::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 4px;
+.edgeMaskLeft {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 32px;
+  pointer-events: none;
+  background: linear-gradient(to right, var(--bg-color), transparent);
+  opacity: 0.85;
 }
 
-.project-card {
+.edgeMaskRight {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 32px;
+  pointer-events: none;
+  background: linear-gradient(to left, var(--bg-color), transparent);
+  opacity: 0.85;
+}
+
+.cardWrapper {
+  box-sizing: border-box;
   scroll-snap-align: start;
+  flex: 0 0 340px;
+  height: 300px;
+  min-height: 300px;
+  display: flex;
+  align-items: stretch;
+}
+
+.contactsFooter {
+  padding-top: 0;
+  margin-top: calc(var(--spacing-large) * 2);
+}
+
+.contactsTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-color);
+  margin: 0 0 var(--spacing-medium);
+}
+
+.contactsList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+}
+
+.contactItem:not(:last-child)::after {
+  content: '';
+  width: 1px;
+  height: 20px;
+  background-color: var(--accent-color);
+  opacity: 0.5;
+  margin-left: calc(var(--spacing-large) * 1.5);
+  margin-right: calc(var(--spacing-large) * 1.5);
+}
+
+.contactLink {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-small);
+  font-size: 0.95rem;
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+.contactLink:hover {
+  text-decoration: underline;
+}
+
+.contactIcon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+:global([data-theme="dark"]) .contactIcon {
+  filter: invert(1);
+}
+
+@media (max-width: 480px) {
+  .aboutSection {
+    flex-direction: column;
+  }
+
+  .aboutImageWrap {
+    order: -1;
+  }
+
+  .projectsGrid {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .cardWrapper {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
 }
 

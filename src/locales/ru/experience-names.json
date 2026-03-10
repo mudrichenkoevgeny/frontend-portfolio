@@ -7,5 +7,6 @@
     "documentation": "Документация",
     "kmp_testing": "KMP тестирование",
     "integration_testing": "Интеграционные тесты",
-    "custom_di": "Самописный DI"
+    "custom_di": "Самописный DI",
+    "camera": "Камера"
 }

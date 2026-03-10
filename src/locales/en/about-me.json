@@ -1,0 +1,12 @@
+{
+  "about_me": "Software Engineer with 10 years of experience, including 6 years of commercial Android development. Beyond the core Android stack, I have hands-on experience with Kotlin Multiplatform (KMP) and Ktor for backend development. My background spans Information Services, EdTech, Retail, and Enterprise sectors. I actively leverage automation tools and AI assistants (Cursor, Gemini, etc.) to optimize development workflows.",
+  "experience": [
+    "End-to-end Android development (from scratch) and maintenance of large-scale legacy projects.",
+    "Architecting and implementing scalable multi-module systems with a strong focus on data security.",
+    "Extensive cross-functional collaboration: co-designing architectures, discussing UX/UI solutions with designers, and working closely with QA to isolate and resolve complex bugs.",
+    "Full-cycle team development: estimation, task decomposition, sprint planning, and API contract synchronization.",
+    "Mentoring peers, conducting thorough code reviews, and participating in technical hiring processes.",
+    "Conducting R&D and technical spikes for new technologies followed by preparing comprehensive technical documentation (Design Docs).",
+    "Full-cycle product release management: from CI/CD configuration and app store publication to developing and maintaining internal libraries."
+  ]
+}

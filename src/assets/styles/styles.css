@@ -4,18 +4,27 @@
     --spacing-large: 32px;
     --border-radius: 12px;
     --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --header-height: 56px;
 
     --bg-color: #ffffff;
     --text-color: #1a1a1a;
+    --text-dim: #5a5a5a;
     --accent-color: #007bff;
     --card-bg: #f8f9fa;
+    --header-bg: #ffffff;
 }
 
 [data-theme="dark"] {
     --bg-color: #121212;
     --text-color: #e0e0e0;
+    --text-dim: #a0a0a0;
     --accent-color: #375a7f;
     --card-bg: #1e1e1e;
+    --header-bg: #1a1a1a;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {

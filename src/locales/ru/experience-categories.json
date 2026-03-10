@@ -12,5 +12,7 @@
     "async": "Асинхронность",
     "vcs_ci_cd": "VCS и CI/CD",
     "build_systems": "Системы сборки",
-    "integrations": "Интеграции и SDK"
+    "hardware": "Аппаратное обеспечение",
+    "integrations": "Интеграции и SDK",
+    "ai_tools": "AI-инструменты"
 }

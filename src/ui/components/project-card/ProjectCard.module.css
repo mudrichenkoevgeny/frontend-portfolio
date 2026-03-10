@@ -1,115 +1,93 @@
-.projectCard {
-  padding: 24px;
-  background: rgba(255, 255, 255, 0.03);
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  transition: transform 0.2s ease, border-color 0.2s ease;
+.card {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 280px;
+  max-width: 380px;
+  height: 300px;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-medium);
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--accent-color);
+  transition: border-color 0.2s ease, transform 0.2s ease;
+  cursor: pointer;
 }
 
-.projectCard:hover {
+.card:hover {
   border-color: var(--accent-color);
   transform: translateY(-2px);
 }
 
-.projectHeader {
+.cardHeader {
   display: flex;
-  flex-direction: column;
-  gap: 12px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  padding-bottom: 16px;
-}
-
-.projectTitle {
-  font-size: 1.25rem;
-  margin: 0;
-  color: var(--text-main);
-}
-
-.projectRole {
-  font-size: 0.95rem;
-  color: var(--text-dim);
-}
-
-.projectPeriodBlock {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.periodDates {
-  font-size: 0.9rem;
-  color: var(--text-main);
-  text-transform: capitalize;
-}
-
-.periodTotal {
-  font-size: 0.85rem;
-  color: var(--accent-color);
-  font-weight: 500;
-}
-
-.projectDescription {
-  margin: 16px 0;
-  line-height: 1.6;
-  color: var(--text-main);
-}
-
-.experienceSection {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.experienceRow {
-  display: flex;
-  gap: 12px;
-  padding: 0;
-  margin-bottom: 8px;
+  justify-content: space-between;
   align-items: flex-start;
+  gap: var(--spacing-small);
+  margin-bottom: var(--spacing-medium);
 }
 
-.experienceDot {
-  color: var(--accent-color);
-  line-height: 1.4;
+.cardTitleBlock {
+  flex: 1;
+  min-width: 0;
 }
 
-.experienceText {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-
-.experienceCategory {
-  font-weight: 600;
-  color: var(--text-main);
-}
-
-.experienceNames {
+.role {
+  font-size: 0.875rem;
   color: var(--text-dim);
+  display: block;
+  margin-bottom: var(--spacing-small);
 }
 
-.highlightsContainer {
-  margin-top: 20px;
-  padding-top: 16px;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.highlightsTitle {
-  font-size: 0.95rem;
-  color: var(--text-main);
-  margin: 0 0 12px 0;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.projectHighlights {
-  padding-left: 18px;
+.title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-color);
   margin: 0;
-  list-style-type: square;
+  line-height: 1.3;
 }
 
-.projectHighlights li {
+.company {
+  font-size: 0.875rem;
   color: var(--text-dim);
-  margin-bottom: 8px;
-  padding-left: 4px;
+  flex-shrink: 0;
+  text-align: right;
+}
+
+.description {
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: var(--text-color);
+  margin: 0 0 var(--spacing-medium);
+  flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cardFooter {
+  margin-top: auto;
+  padding-top: var(--spacing-medium);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--spacing-small);
+}
+
+.moreDetailsBtn {
+  padding: var(--spacing-small) var(--spacing-medium);
+  font-size: 0.875rem;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--accent-color);
+  background-color: var(--card-bg);
+  color: var(--accent-color);
+  cursor: pointer;
+}
+
+.moreDetailsBtn:hover {
+  background-color: var(--accent-color);
+  color: var(--bg-color);
 }

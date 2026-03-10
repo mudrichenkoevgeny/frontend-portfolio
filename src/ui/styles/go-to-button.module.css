@@ -1,0 +1,15 @@
+.goToBtn {
+  padding: var(--spacing-small) var(--spacing-medium);
+  font-size: 0.875rem;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--accent-color);
+  background-color: var(--card-bg);
+  color: var(--accent-color);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.goToBtn:hover {
+  background-color: var(--accent-color);
+  color: var(--bg-color);
+}
