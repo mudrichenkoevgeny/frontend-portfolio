@@ -1,17 +1,17 @@
 .card {
   box-sizing: border-box;
   width: 100%;
-  min-width: 280px;
-  max-width: 380px;
-  height: 300px;
-  min-height: 300px;
+  min-width: var(--card-min-width);
+  max-width: var(--card-max-width);
+  height: var(--card-height);
+  min-height: var(--card-height);
   display: flex;
   flex-direction: column;
   padding: var(--spacing-medium);
   background-color: var(--card-bg);
   border-radius: var(--border-radius);
   border: 1px solid var(--accent-color);
-  transition: border-color 0.2s ease, transform 0.2s ease;
+  transition: border-color var(--transition-fast), transform var(--transition-fast);
   cursor: pointer;
 }
 
@@ -34,7 +34,7 @@
 }
 
 .role {
-  font-size: 0.95rem;
+  font-size: var(--font-size-sm);
   font-family: var(--font-main);
   color: var(--text-dim);
   display: block;
@@ -42,16 +42,16 @@
 }
 
 .title {
-  font-size: 1.35rem;
-  font-weight: 700;
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
   font-family: var(--font-main);
   color: var(--text-color);
   margin: 0;
-  line-height: 1.3;
+  line-height: var(--line-height-tight);
 }
 
 .company {
-  font-size: 0.95rem;
+  font-size: var(--font-size-sm);
   font-family: var(--font-main);
   color: var(--text-dim);
   flex-shrink: 0;
@@ -59,14 +59,14 @@
 }
 
 .description {
-  font-size: 1rem;
-  line-height: 1.5;
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
   font-family: var(--font-main);
   color: var(--text-color);
   margin: 0 0 var(--spacing-medium);
   flex: 1;
   display: -webkit-box;
-  -webkit-line-clamp: 5;
+  -webkit-line-clamp: var(--line-clamp-description);
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -84,7 +84,7 @@
 .moreDetailsBtn {
   margin-left: auto;
   padding: var(--spacing-small) var(--spacing-medium);
-  font-size: 0.95rem;
+  font-size: var(--font-size-sm);
   font-family: var(--font-main);
   border-radius: var(--border-radius);
   border: 1px solid var(--accent-color);
@@ -96,4 +96,12 @@
 .moreDetailsBtn:hover {
   background-color: var(--accent-color);
   color: var(--bg-color);
+}
+
+@media (max-width: 767px) {
+  .card {
+    max-width: none;
+    min-width: 0;
+    box-shadow: none;
+  }
 }

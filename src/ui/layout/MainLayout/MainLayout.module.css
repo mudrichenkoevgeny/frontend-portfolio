@@ -15,12 +15,12 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 var(--spacing-medium) 0 var(--spacing-large); 
-  z-index: 100;
+  z-index: var(--z-index-header);
   border-bottom: 1px solid var(--card-bg);
 }
 
 .brand {
-  font-weight: 600;
+  font-weight: var(--font-weight-semibold);
   color: var(--text-color);
   text-decoration: none;
   white-space: nowrap;
@@ -51,8 +51,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: var(--control-size);
+  height: var(--control-size);
   padding: 0;
   border: none;
   border-radius: var(--border-radius);
@@ -66,8 +66,8 @@
 }
 
 .themeIcon {
-  width: 24px;
-  height: 24px;
+  width: var(--icon-size-md);
+  height: var(--icon-size-md);
   object-fit: contain;
   display: block;
 }
@@ -84,7 +84,7 @@
   display: flex;
   align-items: center;
   gap: var(--spacing-small);
-  font-size: 0.875rem;
+  font-size: var(--font-size-xs);
   color: var(--text-color);
   cursor: pointer;
   padding: var(--spacing-small) var(--spacing-medium);
@@ -94,8 +94,8 @@
 }
 
 .langTriggerIcon {
-  width: 20px;
-  height: 20px;
+  width: var(--icon-size-sm);
+  height: var(--icon-size-sm);
   object-fit: contain;
   display: block;
 }
@@ -120,9 +120,9 @@
   background-color: var(--card-bg);
   border: 1px solid var(--accent-color);
   border-radius: var(--border-radius);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  z-index: 150;
-  animation: langDropdownFade 0.2s ease-out;
+  box-shadow: var(--shadow-dropdown);
+  z-index: var(--z-index-dropdown);
+  animation: langDropdownFade var(--duration-fast) ease-out;
 }
 
 @keyframes langDropdownFade {
@@ -139,11 +139,11 @@
   display: block;
   width: 100%;
   padding: var(--spacing-small) var(--spacing-medium);
-  font-size: 0.875rem;
+  font-size: var(--font-size-xs);
   color: var(--text-color);
   background: transparent;
   border: none;
-  border-radius: 4px;
+  border-radius: var(--border-radius-sm);
   cursor: pointer;
   text-align: left;
 }
@@ -169,5 +169,26 @@
   margin-top: var(--header-height);
   padding: calc(var(--spacing-large) * 0.1) var(--spacing-large) var(--spacing-large) var(--spacing-large);
   overflow: auto;
-  font-size: 1.2em;
+  font-size: var(--font-size-main);
+}
+
+@media (max-width: 767px) {
+  .header {
+    padding: 0 var(--spacing-medium);
+  }
+
+  .nav {
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .main {
+    padding: var(--spacing-small) var(--spacing-small) var(--spacing-large) var(--spacing-small);
+  }
 }

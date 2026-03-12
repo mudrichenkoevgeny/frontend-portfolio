@@ -1,24 +1,24 @@
 .overlay {
   position: fixed;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: var(--overlay-bg);
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 200;
+  z-index: var(--z-index-modal);
   padding: var(--spacing-medium);
 }
 
 .modal {
   width: 100%;
-  max-width: 520px;
-  max-height: 90vh;
+  max-width: var(--modal-max-width);
+  max-height: var(--modal-vh-max);
   display: flex;
   flex-direction: column;
   background-color: var(--card-bg);
   border-radius: var(--border-radius);
   border: 1px solid var(--accent-color);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--shadow-modal);
 }
 
 .modalBody {
@@ -36,8 +36,8 @@
 }
 
 .closeBtn {
-  width: 32px;
-  height: 32px;
+  width: var(--icon-size-lg);
+  height: var(--icon-size-lg);
   flex-shrink: 0;
   padding: 0;
   border: none;
@@ -45,7 +45,7 @@
   background: transparent;
   color: var(--text-color);
   cursor: pointer;
-  font-size: 1.25rem;
+  font-size: var(--font-size-xl);
   line-height: 1;
   display: flex;
   align-items: center;
@@ -69,12 +69,12 @@
   height: 1px;
   background-color: var(--accent-color);
   margin: var(--spacing-medium) 0;
-  opacity: 0.4;
+  opacity: var(--opacity-subtle);
 }
 
 .projectTitle {
-  font-size: 1.35rem;
-  font-weight: 700;
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
   font-family: var(--font-main);
   color: var(--text-color);
   margin: 0;
@@ -83,30 +83,30 @@
 }
 
 .meta {
-  font-size: 0.95rem;
+  font-size: var(--font-size-sm);
   font-family: var(--font-main);
   color: var(--text-dim);
   margin: 0 0 var(--spacing-small);
 }
 
 .periodBlock {
-  font-size: 1rem;
+  font-size: var(--font-size-base);
   font-family: var(--font-main);
   color: var(--text-color);
   margin: 0 0 var(--spacing-small);
 }
 
 .description {
-  font-size: 1rem;
-  line-height: 1.5;
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
   font-family: var(--font-main);
   color: var(--text-color);
   margin: 0;
 }
 
 .sectionTitle {
-  font-size: 0.95rem;
-  font-weight: 600;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
   font-family: var(--font-main);
   color: var(--text-color);
   margin: 0 0 var(--spacing-small);
@@ -119,8 +119,8 @@
 }
 
 .highlightsList li {
-  font-size: 1rem;
-  line-height: 1.5;
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
   font-family: var(--font-main);
   color: var(--text-color);
   margin-bottom: var(--spacing-small);
@@ -135,16 +135,16 @@
 }
 
 .stackGroupLine {
-  font-size: 0.95rem;
+  font-size: var(--font-size-sm);
   font-family: var(--font-main);
   color: var(--text-color);
-  line-height: 1.5;
+  line-height: var(--line-height-normal);
   margin: 0;
 }
 
 .stackCategoryName {
-  font-size: 1rem;
-  font-weight: 600;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
   font-family: var(--font-main);
   color: var(--text-color);
 }

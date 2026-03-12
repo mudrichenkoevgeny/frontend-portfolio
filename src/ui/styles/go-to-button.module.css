@@ -1,6 +1,6 @@
 .goToBtn {
   padding: var(--spacing-small) var(--spacing-medium);
-  font-size: 0.875rem;
+  font-size: var(--font-size-xs);
   border-radius: var(--border-radius);
   border: 1px solid var(--accent-color);
   background-color: var(--card-bg);
